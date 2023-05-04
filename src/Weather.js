@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { apiKey } from './setting.js';
+import SearchBar from './components/SearchBar.js';
 
 class Weather extends React.Component {
     constructor(props) {
@@ -66,12 +67,7 @@ class Weather extends React.Component {
 
         return (
             <>
-                <form onSubmit={this.handleSubmit}>
-                    <label>
-                        <input type="text" onChange={this.handleInputChange} className="search-box" placeholder="City name" />
-                    </label>
-                    <button type="submit" className="search-button">Search</button>
-                </form>
+                <SearchBar onInputChange={this.handleInputChange} onSubmit={this.handleSubmit} />
                 <div>
                     <br></br>
                     <p>{weather.name}, {weather.sys.country}</p>
